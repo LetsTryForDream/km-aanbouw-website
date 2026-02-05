@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, ChevronDown, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -39,13 +39,10 @@ type NavItem = {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    let lastScrollY = 0;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -61,21 +58,23 @@ export function Header() {
         setIsVisible(true);
       }
 
-      lastScrollY = currentScrollY;
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        mounted && isScrolled
+        isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent",
-        mounted && !isVisible ? "-translate-y-full" : "translate-y-0"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
@@ -167,7 +166,7 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
 
