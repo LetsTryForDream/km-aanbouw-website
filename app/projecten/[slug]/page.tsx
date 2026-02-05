@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import CtaSection from "@/components/sections/cta-section"; // Import CtaSection
+import { CtaSection } from "@/components/sections/cta-section";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
