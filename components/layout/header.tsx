@@ -110,70 +110,61 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu - only render after mount to avoid hydration mismatch */}
-          <div className="lg:hidden">
-            {mounted ? (
-              <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Menu openen</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-full sm:w-96 overflow-y-auto">
-                  <SheetTitle className="text-left mb-6">
-                    <Link
-                      href="/"
-                      className="flex items-center gap-2 font-bold text-xl"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <span className="text-primary text-2xl">KM</span>
-                      <span>Aanbouw</span>
-                    </Link>
-                  </SheetTitle>
-                  <nav className="flex flex-col gap-2">
-                    {site.nav.map((item: NavItem) => (
-                      <MobileNavItem
-                        key={item.label}
-                        item={item}
-                        onClose={() => setMobileOpen(false)}
-                      />
-                    ))}
-                  </nav>
-                  <div className="mt-8 flex flex-col gap-3">
-                    <Button asChild className="w-full">
-                      <Link
-                        href={site.global.primaryCta.href}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {site.global.primaryCta.label}
-                      </Link>
-                    </Button>
-                    <Button variant="outline" asChild className="w-full bg-transparent">
-                      <Link
-                        href={site.global.secondaryCta.href}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {site.global.secondaryCta.label}
-                      </Link>
-                    </Button>
-                    <a
-                      href={`tel:${site.brand.phone.replace(/\s/g, "")}`}
-                      className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
-                    >
-                      <Phone className="h-4 w-4" />
-                      {site.brand.phone}
-                    </a>
-                  </div>
-                </SheetContent>
-              </Sheet>
-            ) : (
-              <Button variant="ghost" size="icon" disabled>
-                <span className="h-6 w-6" />
+          {/* Mobile Menu */}
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
                 <span className="sr-only">Menu openen</span>
               </Button>
-            )}
-          </div>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full sm:w-96 overflow-y-auto">
+              <SheetTitle className="text-left mb-6">
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 font-bold text-xl"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="text-primary text-2xl">KM</span>
+                  <span>Aanbouw</span>
+                </Link>
+              </SheetTitle>
+              <nav className="flex flex-col gap-2">
+                {site.nav.map((item: NavItem) => (
+                  <MobileNavItem
+                    key={item.label}
+                    item={item}
+                    onClose={() => setMobileOpen(false)}
+                  />
+                ))}
+              </nav>
+              <div className="mt-8 flex flex-col gap-3">
+                <Button asChild className="w-full">
+                  <Link
+                    href={site.global.primaryCta.href}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {site.global.primaryCta.label}
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild className="w-full bg-transparent">
+                  <Link
+                    href={site.global.secondaryCta.href}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {site.global.secondaryCta.label}
+                  </Link>
+                </Button>
+                <a
+                  href={`tel:${site.brand.phone.replace(/\s/g, "")}`}
+                  className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
+                >
+                  <Phone className="h-4 w-4" />
+                  {site.brand.phone}
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
