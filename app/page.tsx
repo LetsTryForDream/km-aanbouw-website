@@ -22,6 +22,7 @@ export default function HomePage() {
         subtitle={home.hero.subtitle}
         bullets={home.hero.bullets}
         ctas={home.hero.ctas}
+        videoSrc="/images/video-2026-02-05-10-17-24.mp4"
       />
 
       {/* Populaire oplossingen */}

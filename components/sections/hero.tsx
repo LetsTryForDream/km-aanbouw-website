@@ -16,6 +16,7 @@ interface HeroProps {
     variant: "primary" | "secondary";
   }>;
   showGrid?: boolean;
+  videoSrc?: string;
 }
 
 const containerVariants = {
@@ -47,6 +48,7 @@ export function Hero({
   bullets,
   ctas,
   showGrid = true,
+  videoSrc,
 }: HeroProps) {
   return (
     <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 lg:pt-24">
@@ -78,78 +80,100 @@ export function Hero({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {kicker && (
+        <div className={`grid gap-8 lg:gap-12 items-center ${videoSrc ? "lg:grid-cols-2" : ""}`}>
+          <div className="max-w-3xl">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {kicker && (
+                <motion.p
+                  variants={itemVariants}
+                  className="text-primary font-medium mb-4 text-sm uppercase tracking-wide"
+                >
+                  {kicker}
+                </motion.p>
+              )}
+
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance"
+              >
+                {title}
+              </motion.h1>
+
               <motion.p
                 variants={itemVariants}
-                className="text-primary font-medium mb-4 text-sm uppercase tracking-wide"
+                className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl text-pretty"
               >
-                {kicker}
+                {subtitle}
               </motion.p>
-            )}
 
-            <motion.h1
-              variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance"
-            >
-              {title}
-            </motion.h1>
+              {bullets && bullets.length > 0 && (
+                <motion.ul variants={itemVariants} className="space-y-3 mb-8">
+                  {bullets.map((bullet, index) => (
+                    <motion.li
+                      key={index}
+                      variants={itemVariants}
+                      className="flex items-start gap-3 text-foreground/80"
+                    >
+                      <span className="flex-shrink-0 mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-primary" />
+                      </span>
+                      {bullet}
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              )}
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl text-pretty"
-            >
-              {subtitle}
-            </motion.p>
-
-            {bullets && bullets.length > 0 && (
-              <motion.ul variants={itemVariants} className="space-y-3 mb-8">
-                {bullets.map((bullet, index) => (
-                  <motion.li
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                {ctas.map((cta, index) => (
+                  <Button
                     key={index}
-                    variants={itemVariants}
-                    className="flex items-start gap-3 text-foreground/80"
+                    variant={cta.variant === "primary" ? "default" : "outline"}
+                    size="lg"
+                    asChild
+                    className={
+                      cta.variant === "primary"
+                        ? "group"
+                        : "group"
+                    }
                   >
-                    <span className="flex-shrink-0 mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Check className="w-3 h-3 text-primary" />
-                    </span>
-                    {bullet}
-                  </motion.li>
+                    <Link href={cta.href}>
+                      {cta.label}
+                      {cta.variant === "primary" && (
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      )}
+                    </Link>
+                  </Button>
                 ))}
-              </motion.ul>
-            )}
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              {ctas.map((cta, index) => (
-                <Button
-                  key={index}
-                  variant={cta.variant === "primary" ? "default" : "outline"}
-                  size="lg"
-                  asChild
-                  className={
-                    cta.variant === "primary"
-                      ? "group"
-                      : "group"
-                  }
-                >
-                  <Link href={cta.href}>
-                    {cta.label}
-                    {cta.variant === "primary" && (
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    )}
-                  </Link>
-                </Button>
-              ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
+          {videoSrc && (
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="hidden lg:block"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <video
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto object-cover aspect-video"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-foreground/10 rounded-2xl pointer-events-none" />
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
 
