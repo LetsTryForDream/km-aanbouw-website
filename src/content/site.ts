@@ -47,18 +47,6 @@ export const site = {
             { label: "Slaapkamer", href: "/aanbouw/opties/slaapkamer" },
           ],
         },
-        {
-          label: "Werkgebieden",
-          href: "/werkgebieden",
-          children: [
-            { label: "Den Haag", href: "/werkgebieden/den-haag" },
-            { label: "Rotterdam", href: "/werkgebieden/rotterdam" },
-            { label: "Leiden", href: "/werkgebieden/leiden" },
-            { label: "Delft", href: "/werkgebieden/delft" },
-            { label: "Zoetermeer", href: "/werkgebieden/zoetermeer" },
-            { label: "Pijnacker", href: "/werkgebieden/pijnacker" },
-          ],
-        },
       ],
     },
     {
@@ -72,6 +60,19 @@ export const site = {
       children: [{ label: "Dakkapel laten plaatsen", href: "/dakkapel/dakkapel-laten-plaatsen" }],
     },
     { label: "Projecten", href: "/projecten" },
+    {
+      label: "Werkgebieden",
+      href: "/werkgebieden",
+      children: [
+        { label: "Heel Nederland", href: "/werkgebieden" },
+        { label: "Den Haag", href: "/werkgebieden/den-haag" },
+        { label: "Rotterdam", href: "/werkgebieden/rotterdam" },
+        { label: "Leiden", href: "/werkgebieden/leiden" },
+        { label: "Delft", href: "/werkgebieden/delft" },
+        { label: "Zoetermeer", href: "/werkgebieden/zoetermeer" },
+        { label: "Pijnacker", href: "/werkgebieden/pijnacker" },
+      ],
+    },
     { label: "Over ons", href: "/over-ons" },
     { label: "Contact", href: "/contact" },
   ],

@@ -189,34 +189,34 @@ function NavItemComponent({ item }: { item: NavItem }) {
         <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-56">
-        {item.children.map((child: NavChild) => (
-          <NestedMenuItem key={child.label} item={child} />
-        ))}
+        {item.children.map((child: NavChild) => {
+          if (child.children) {
+            return (
+              <DropdownMenuSub key={child.label}>
+                <DropdownMenuSubTrigger>{child.label}</DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    {child.children.map((subChild: NavChild) => (
+                      <DropdownMenuItem key={subChild.label} asChild>
+                        <Link href={subChild.href || "/"}>
+                          {subChild.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
+            );
+          }
+
+          return (
+            <DropdownMenuItem key={child.label} asChild>
+              <Link href={child.href || "/"}>{child.label}</Link>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-}
-
-function NestedMenuItem({ item }: { item: NavChild }) {
-  if (!item.children) {
-    return (
-      <DropdownMenuItem asChild>
-        <Link href={item.href || "/"}>{item.label}</Link>
-      </DropdownMenuItem>
-    );
-  }
-
-  return (
-    <DropdownMenuSub>
-      <DropdownMenuSubTrigger>{item.label}</DropdownMenuSubTrigger>
-      <DropdownMenuPortal>
-        <DropdownMenuSubContent className="w-48">
-          {item.children.map((subChild: NavChild) => (
-            <NestedMenuItem key={subChild.label} item={subChild} />
-          ))}
-        </DropdownMenuSubContent>
-      </DropdownMenuPortal>
-    </DropdownMenuSub>
   );
 }
 
