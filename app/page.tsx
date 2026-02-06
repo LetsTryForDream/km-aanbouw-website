@@ -22,7 +22,7 @@ export default function HomePage() {
         subtitle={home.hero.subtitle}
         bullets={home.hero.bullets}
         ctas={home.hero.ctas}
-        videoSrc="/images/1.mp4"
+        videoSrc="/videos/landing-video.mp4"
       />
 
       {/* Populaire oplossingen */}
