@@ -1,6 +1,5 @@
 import React from "react"
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
@@ -54,7 +53,7 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="nl" className={inter.variable}>

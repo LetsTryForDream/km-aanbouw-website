@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import React from "react"
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Check, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -34,11 +36,15 @@ export function LeadForm({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission - in production, send to API
+    // Simulate submission
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+    console.log("[v0] Form submission:", data);
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setIsSubmitting(false);
