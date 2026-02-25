@@ -8,6 +8,7 @@ import { TestimonialSlider } from "@/components/sections/testimonial-slider";
 import { LeadForm } from "@/components/sections/lead-form";
 import { ServiceJsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
+import { ChecklistSection } from "@/components/sections/checklist-section"
 
 export const metadata: Metadata = {
   title: site.pages.prefabUitbouw.meta.title,
@@ -38,29 +39,12 @@ export default function PrefabUitbouwPage() {
         subtitle={page.hero.subtitle}
         ctas={page.hero.ctas}
         showGrid={false}
+        imageSrc={page.hero.imageSrc}
       />
 
       {/* Populaire keuzes */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              {page.populaireKeuzes.title}
-            </h2>
-            <ul className="space-y-3 mb-8">
-              {page.populaireKeuzes.bullets.map((bullet, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 mt-1 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-primary" />
-                  </span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
+      <ChecklistSection title={page.populaireKeuzes.title} items={page.populaireKeuzes.bullets} images={page.populaireKeuzes.images} />
+      
       {/* Waar we op letten */}
       <section className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -94,7 +78,7 @@ export default function PrefabUitbouwPage() {
         testimonials={site.testimonials}
       />
 
-      <LeadForm
+      {/* <LeadForm
         title="Gratis offerte aanvragen"
         subtitle="Laat ons meedenken over indeling en licht."
         bullets={[
@@ -102,7 +86,7 @@ export default function PrefabUitbouwPage() {
           "Heldere opties",
           "Kostenindicatie + planning",
         ]}
-      />
+      /> */}
     </>
   );
 }

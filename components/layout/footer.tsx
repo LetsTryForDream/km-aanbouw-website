@@ -2,6 +2,17 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { site } from "@/src/content/site";
 
+const WhatsAppIcon = () => (
+  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+    />
+  </svg>
+)
+
 export function Footer() {
   return (
     <footer className="bg-foreground text-background">
@@ -10,17 +21,27 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 font-bold text-xl mb-4">
-              <span className="text-accent text-2xl">KM</span>
+              <span className="text-primary text-2xl">KM</span>
               <span>Aanbouw</span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-4">
-              {site.brand.tagline}
+              {site.brand.description}
             </p>
             <div className="flex flex-col gap-2 text-sm text-background/70">
-              <a href={`tel:${site.brand.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-background transition-colors">
+              <a href={`tel:${site.brand.phoneE164}`} className="flex items-center gap-2 hover:text-background transition-colors">
                 <Phone className="h-4 w-4" />
-                {site.brand.phone}
+                {site.brand.phoneDisplay}
               </a>
+              <div className="flex items-center gap-2 text-[#fcfcfcbf] hover:text-background transition-colors">
+                <WhatsAppIcon />
+                <Link
+                  href={`https://wa.me/${site.brand.whatsappWaMe}`}
+                  className="flex items-center gap-2"
+                  aria-label={`WhatsApp ${site.brand.name} op ${site.brand.phoneDisplay}`}
+                >
+                  WhatsApp: {site.brand.phoneDisplay}
+                </Link>
+              </div>
               <a href={`mailto:${site.brand.email}`} className="flex items-center gap-2 hover:text-background transition-colors">
                 <Mail className="h-4 w-4" />
                 {site.brand.email}
@@ -118,7 +139,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/gratis-offerte" className="hover:text-background transition-colors">
+                <Link href="/gratis-offerte" className="mt-1 inline-flex items-center justify-center bg-[#f26522] hover:bg-[#e55511] text-white font-semibold px-4 py-2 rounded-full transition-colors text-sm">
                   Gratis offerte
                 </Link>
               </li>
@@ -131,7 +152,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/50">
             <p>© {new Date().getFullYear()} KM Aanbouw. Alle rechten voorbehouden.</p>
             <div className="flex items-center gap-4">
-              <span>KvK: {site.brand.kvk}</span>
               <Link href="/privacy" className="hover:text-background transition-colors">
                 Privacy
               </Link>

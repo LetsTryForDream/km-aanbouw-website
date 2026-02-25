@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image"
+
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -67,14 +69,14 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ duration: 0.3 }}
+      // initial={{ y: 0 }}
+      // animate={{ y: isVisible ? 0 : -100 }}
+      // transition={{ duration: 0.3 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-200 bg-background/95 backdrop-blur-md shadow-sm",
+        // isScrolled
+        //   ? "bg-background/95 backdrop-blur-md shadow-sm"
+        //   : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
@@ -84,8 +86,14 @@ export function Header() {
             href="/"
             className="flex items-center gap-2 font-bold text-xl text-primary"
           >
-            <span className="text-2xl">KM</span>
-            <span className="text-foreground">Aanbouw</span>
+            <Image
+              src="/images/logo.png"
+              alt="logo"
+              width={100}
+              height={100}
+              className="object-cover"
+            />
+            {/* <span className="text-foreground">KM Aanbouw</span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -97,11 +105,6 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="outline" size="sm" asChild>
-              <Link href={site.global.secondaryCta.href}>
-                {site.global.secondaryCta.label}
-              </Link>
-            </Button>
             <Button size="sm" asChild>
               <Link href={site.global.primaryCta.href}>
                 {site.global.primaryCta.label}
@@ -146,20 +149,12 @@ export function Header() {
                     {site.global.primaryCta.label}
                   </Link>
                 </Button>
-                <Button variant="outline" asChild className="w-full bg-transparent">
-                  <Link
-                    href={site.global.secondaryCta.href}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {site.global.secondaryCta.label}
-                  </Link>
-                </Button>
                 <a
-                  href={`tel:${site.brand.phone.replace(/\s/g, "")}`}
+                  href={`tel:${site.brand.phoneE164}`}
                   className="flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors py-2"
                 >
                   <Phone className="h-4 w-4" />
-                  {site.brand.phone}
+                  {site.brand.phoneDisplay}
                 </a>
               </div>
             </SheetContent>

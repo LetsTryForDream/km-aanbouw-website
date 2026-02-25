@@ -6,17 +6,23 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Toaster } from "@/components/ui/toaster";
+import { site } from "@/src/content/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kmaanbouw.nl"),
+  metadataBase: new URL(site.brand.url),
   title: {
-    default: "KM Aanbouw | Aanbouw, Opbouw & Dakkapel in heel Nederland",
+    default: "KM Aanbouw | Prefab & Traditionele Aanbouwen | Snel en Hoogwaardig",
     template: "%s | KM Aanbouw",
   },
   description:
-    "Meer ruimte nodig? KM Aanbouw realiseert prefab en traditionele aanbouwen, dakopbouwen en dakkapellen. Snel gebouwd, strak afgewerkt. Gratis offerte.",
+    "KM Aanbouw realiseert prefab en traditioneel gebouwde aanbouwen met snelle levertijd, hoge kwaliteit en duidelijke budgetten. Vraag vrijblijvend advies aan.",
+  generator: site.brand.name,
+  icons: {
+    icon: [{ url: "/logo.jpg" }],
+    apple: [{ url: "/logo.jpg" }],
+  },
   keywords: [
     "aanbouw",
     "prefab aanbouw",
@@ -34,13 +40,21 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "KM Aanbouw" }],
   openGraph: {
+    title: "KM Aanbouw | Prefab & Traditionele Aanbouwen | Snel en Hoogwaardig",
+    description:
+      "KM Aanbouw realiseert prefab en traditioneel gebouwde aanbouwen met snelle levertijd, hoge kwaliteit en duidelijke budgetten. Vraag vrijblijvend advies aan.",
+    images: ["/og-image-v2.jpg"],
     type: "website",
     locale: "nl_NL",
-    url: "https://kmaanbouw.nl",
-    siteName: "KM Aanbouw",
-    title: "KM Aanbouw | Aanbouw, Opbouw & Dakkapel in heel Nederland",
+    url: site.brand.url,
+    siteName: site.brand.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KM Aanbouw | Prefab & Traditionele Aanbouwen | Snel en Hoogwaardig",
     description:
-      "Meer ruimte nodig? KM Aanbouw realiseert prefab en traditionele aanbouwen, dakopbouwen en dakkapellen. Snel gebouwd, strak afgewerkt.",
+      "KM Aanbouw realiseert prefab en traditioneel gebouwde aanbouwen met snelle levertijd, hoge kwaliteit en duidelijke budgetten. Vraag vrijblijvend advies aan.",
+    images: ["/og-image-v2.jpg"],
   },
 };
 

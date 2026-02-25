@@ -213,7 +213,7 @@ export default async function BlogDetailPage({
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild>
-                  <Link href="/gratis-offerte">Gratis offerte aanvragen</Link>
+                  <Link href="/gratis-offerte">Gratis offerte</Link>
                 </Button>
                 <Button variant="outline" asChild className="bg-transparent">
                   <Link href="/contact">Contact opnemen</Link>
@@ -228,7 +228,7 @@ export default async function BlogDetailPage({
         title="Klaar om te starten?"
         subtitle="Vraag een gratis offerte aan en ontvang binnen een week een voorstel op maat."
         primaryCta={{ label: "Gratis offerte", href: "/gratis-offerte" }}
-        secondaryCta={{ label: "Bel ons", href: `tel:${site.brand.phone.replace(/\s/g, "")}` }}
+        secondaryCta={{ label: "Bel ons", href: `tel:${site.brand.phoneE164}` }}
       />
     </>
   );

@@ -2,18 +2,20 @@ export const site = {
   brand: {
     name: "KM Aanbouw",
     tagline: "Aanbouw, Opbouw & Dakkapel in heel Nederland",
+    description: "Specialist in aanbouw, uitbouw, dakkapel en opbouw. Wij realiseren uw droomproject met vakmanschap en oog voor detail.",
     short: "Extra ruimte bouwen met duidelijke afspraken.",
-    phone: "06 00 00 00 00",
     email: "info@kmaanbouw.nl",
-    whatsapp: "06 00 00 00 00",
-    serviceArea: "heel Nederland",
-    address: "[adres/locatie invullen indien van toepassing]",
-    kvk: "00000000",
+    phoneDisplay: "+31 6 14307340",
+    phoneE164: "+31614307340",
+    whatsappWaMe: "31614307340",
+    whatsappE164: "+31614307340",
+    serviceArea: "Hallenstraat 21A, 5531 AB Bladel",
+    address: "Hallenstraat 21A, 5531 AB Bladel",
+    url: "https://www.kmaanbouw.nl",
   },
 
   global: {
-    primaryCta: { label: "Gratis offerte aanvragen", href: "/gratis-offerte" },
-    secondaryCta: { label: "Adviesgesprek plannen", href: "/contact" },
+    primaryCta: { label: "Gratis offerte", href: "/gratis-offerte" },
     trustBadges: [
       { title: "Heldere offerte en planning", desc: "Je weet vooraf waar je aan toe bent." },
       { title: "Meedenken over indeling", desc: "Lichtinval en isolatie goed afgestemd." },
@@ -142,6 +144,10 @@ export const site = {
           q: "Wat is sneller: prefab of traditioneel?",
           a: "Prefab is vaak sneller op locatie; traditioneel is ideaal bij complexe maatwerkdetails.",
         },
+        {
+          q: "Wil je weten wat in jouw woning het slimst is?",
+          a: "Vraag een gratis offerte aan.",
+        },
       ],
     },
 
@@ -193,6 +199,7 @@ export const site = {
           { label: "Gratis offerte aanvragen", href: "/gratis-offerte", variant: "primary" },
           { label: "Bekijk de voordelen", href: "#voordelen", variant: "secondary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       voordelen: {
         title: "Voordelen van prefab",
@@ -202,6 +209,12 @@ export const site = {
           "Minder afhankelijk van weer en doorlooptijd",
           "Efficiënt materiaalgebruik en nette montage",
         ],
+        images: [
+          "/images/project-1.jpg",
+          "/images/project-2.jpg",
+          "/images/project-3.jpg",
+          "/images/project-4.jpg",
+        ]
       },
       perfectVoor: {
         title: "Prefab is perfect voor",
@@ -211,6 +224,12 @@ export const site = {
           "Extra kamer of thuiskantoor",
           "Strakke, moderne aanbouw met grote pui",
         ],
+        images: [
+          "/images/project-5.jpg",
+          "/images/project-2.jpg",
+          "/images/project-3.jpg",
+          "/images/project-4.jpg",
+        ]
       },
       faq: [
         {
@@ -235,6 +254,7 @@ export const site = {
           { label: "Gratis offerte aanvragen", href: "/gratis-offerte", variant: "primary" },
           { label: "Kosten berekenen", href: "/aanbouw/aanbouw-kosten#calculator", variant: "secondary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       populaireKeuzes: {
         title: "Populaire keuzes",
@@ -244,6 +264,12 @@ export const site = {
           "Daklicht/koepel voor extra daglicht",
           "Vloerverwarming en strakke wandafwerking",
         ],
+        images: [
+          "/images/project-5.jpg",
+          "/images/project-2.jpg",
+          "/images/project-3.jpg",
+          "/images/project-4.jpg",
+        ]
       },
       waarWeLetten: {
         title: "Waar we op letten",
@@ -270,6 +296,7 @@ export const site = {
         ctas: [
           { label: "Gratis offerte aanvragen", href: "/gratis-offerte", variant: "primary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       wanneerSlim: {
         title: "Wanneer traditioneel slim is",
@@ -279,6 +306,12 @@ export const site = {
           "Veel maatwerk in kozijnen, hoekoplossingen of daklijnen",
           "Specifieke afwerkingseisen (binnen en buiten)",
         ],
+        images: [
+          "/images/project-5.jpg",
+          "/images/project-2.jpg",
+          "/images/project-3.jpg",
+          "/images/project-4.jpg",
+        ]
       },
       resultaat: {
         title: "Resultaat: één geheel",
@@ -301,6 +334,7 @@ export const site = {
           { label: "Start calculator", href: "#calculator", variant: "primary" },
           { label: "Gratis offerte", href: "/gratis-offerte", variant: "secondary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       prijsfactoren: {
         title: "Belangrijkste prijsfactoren",
@@ -359,6 +393,7 @@ export const site = {
           { label: "Gratis offerte aanvragen", href: "/gratis-offerte", variant: "primary" },
           { label: "Bekijk projecten", href: "/projecten", variant: "secondary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       types: {
         title: "Veelgevraagde opbouw-types",
@@ -368,6 +403,12 @@ export const site = {
           "Dakopbouw op garage",
           "Prefab (deels) of traditioneel (situatie-afhankelijk)",
         ],
+        images: [
+          "/images/project-5.jpg",
+          "/images/project-2.jpg",
+          "/images/project-3.jpg",
+          "/images/project-4.jpg",
+        ]
       },
       belangrijk: {
         title: "Belangrijk: constructie & vergunning",
@@ -389,6 +430,7 @@ export const site = {
         ctas: [
           { label: "Gratis offerte aanvragen", href: "/gratis-offerte", variant: "primary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       keuzes: {
         title: "Keuzes",
@@ -413,6 +455,7 @@ export const site = {
         subtitle:
           "Bekijk hoe KM Aanbouw woningen groter, lichter en comfortabeler maakt. Elk project laat zien wat er mogelijk is qua indeling, licht, materiaal en afwerking.",
         ctas: [{ label: "Gratis offerte", href: "/gratis-offerte", variant: "primary" }],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       categories: [
         { title: "Aanbouw / uitbouw projecten", filter: "aanbouw" },
@@ -435,6 +478,7 @@ export const site = {
         ctas: [
           { label: "Adviesgesprek plannen", href: "/contact", variant: "primary" },
         ],
+        imageSrc: "/images/aanbouw-prefab.jpg",
       },
       waarWijVoorStaan: {
         title: "Waar wij voor staan",
@@ -868,9 +912,9 @@ export const site = {
 
   testimonials: [
     { name: "S. de V.", place: "Rotterdam", title: "Strakke planning, weinig gedoe", text: "Vanaf intake tot oplevering wisten we precies wat er ging gebeuren. De bouwfase was kort en netjes.", rating: 5 },
-    { name: "M. K.", place: "Den Haag", title: "Goede communicatie", text: "Heldere keuzes vooraf en tijdens de bouw snel schakelen. Afwerking is precies wat we hoopten.", rating: 5 },
-    { name: "J. & L.", place: "Delft", title: "Aanbouw voelt 'origineel'", text: "De aansluiting op het huis is heel strak. Het voelt alsof het altijd zo is geweest.", rating: 5 },
-    { name: "A. B.", place: "Leiden", title: "Fijn team", text: "Vriendelijke mensen, duidelijke afspraken en oplevering met checklist. Prettig traject.", rating: 5 },
+    // { name: "M. K.", place: "Den Haag", title: "Goede communicatie", text: "Heldere keuzes vooraf en tijdens de bouw snel schakelen. Afwerking is precies wat we hoopten.", rating: 5 },
+    // { name: "J. & L.", place: "Delft", title: "Aanbouw voelt 'origineel'", text: "De aansluiting op het huis is heel strak. Het voelt alsof het altijd zo is geweest.", rating: 5 },
+    // { name: "A. B.", place: "Leiden", title: "Fijn team", text: "Vriendelijke mensen, duidelijke afspraken en oplevering met checklist. Prettig traject.", rating: 5 },
     { name: "R. P.", place: "Zoetermeer", title: "Kosten helder uitgelegd", text: "We kregen goed inzicht in wat opties kosten en wat zinvol was. Geen verrassingen.", rating: 4 },
     { name: "N. H.", place: "Amsterdam", title: "Meer licht en ruimte", text: "Met schuifpui en lichtstraat is het echt een andere woning geworden. Erg tevreden.", rating: 5 },
     { name: "T. W.", place: "Utrecht", title: "Alles netjes opgeruimd", text: "Bouwplaats was elke dag schoon. Dat maakt een groot verschil als je er woont.", rating: 5 },

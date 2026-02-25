@@ -38,6 +38,7 @@ export default function AanbouwKostenPage() {
         subtitle={page.hero.subtitle}
         ctas={page.hero.ctas}
         showGrid={false}
+        imageSrc={page.hero.imageSrc}
       />
 
       {/* Prijsfactoren */}
@@ -90,7 +91,7 @@ export default function AanbouwKostenPage() {
             </p>
             <Button size="lg" asChild>
               <Link href="/gratis-offerte">
-                Gratis offerte aanvragen
+                Gratis offerte
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -98,9 +99,9 @@ export default function AanbouwKostenPage() {
         </div>
       </section>
 
-      <CostCalculator title="Bereken je aanbouw kosten" showExplanation={true} />
+      {/* <CostCalculator title="Bereken je aanbouw kosten" showExplanation={true} /> */}
 
-      <LeadForm
+      {/* <LeadForm
         title="Gratis offerte aanvragen"
         subtitle="Met afmetingen + foto's kunnen we sneller en scherper rekenen."
         bullets={[
@@ -108,7 +109,7 @@ export default function AanbouwKostenPage() {
           "Gedetailleerde offerte",
           "Inclusief planning",
         ]}
-      />
+      /> */}
     </>
   );
 }

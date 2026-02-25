@@ -38,6 +38,7 @@ export default function DakkapelPage() {
         subtitle={page.hero.subtitle}
         ctas={page.hero.ctas}
         showGrid={false}
+        imageSrc={page.hero.imageSrc}
       />
 
       {/* Keuzes */}

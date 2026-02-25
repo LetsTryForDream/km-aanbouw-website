@@ -27,6 +27,7 @@ export default function OverOnsPage() {
         subtitle={page.hero.subtitle}
         ctas={page.hero.ctas}
         showGrid={false}
+        imageSrc={page.hero.imageSrc}
       />
 
       {/* Waar wij voor staan */}

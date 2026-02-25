@@ -33,7 +33,7 @@ export default function DakkapelOverviewPage() {
           </p>
           <Button size="lg" asChild>
             <Link href="/gratis-offerte">
-              Gratis offerte aanvragen
+              Gratis offerte
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

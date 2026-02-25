@@ -63,9 +63,9 @@ export function ProcessSteps({ title, steps }: ProcessStepsProps) {
               className="relative"
             >
               {/* Connector line */}
-              {index < steps.length - 1 && index % 3 !== 2 && (
+              {/* {index < steps.length - 1 && index % 3 !== 2 && (
                 <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-border -translate-x-4" />
-              )}
+              )} */}
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">

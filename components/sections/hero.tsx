@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import type { Variants } from "framer-motion";
 
 interface HeroProps {
   kicker?: string;
@@ -16,10 +18,12 @@ interface HeroProps {
     variant: "primary" | "secondary";
   }>;
   showGrid?: boolean;
+  isVideo?: boolean;
   videoSrc?: string;
+  imageSrc?: string;
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -29,7 +33,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -48,10 +52,12 @@ export function Hero({
   bullets,
   ctas,
   showGrid = true,
+  isVideo,
   videoSrc,
+  imageSrc,
 }: HeroProps) {
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 lg:pt-24">
+    <section className={`relative flex items-center overflow-hidden ${isVideo ? "min-h-[100vh]" : "min-h-[100vh-200px]"}`}>
       {/* Blueprint Grid Background */}
       {showGrid && (
         <div className="absolute inset-0 opacity-[0.03]">
@@ -80,7 +86,7 @@ export function Hero({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`grid gap-8 lg:gap-12 items-center ${videoSrc ? "lg:grid-cols-2" : ""}`}>
+        <div className={`grid gap-8 lg:gap-12 items-center lg:grid-cols-2`}>
           <div className="max-w-3xl">
             <motion.div
               variants={containerVariants}
@@ -154,26 +160,44 @@ export function Hero({
               </motion.div>
             </motion.div>
           </div>
-          {videoSrc && (
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden lg:block"
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <video
-                  src={videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-auto object-cover aspect-video"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-foreground/10 rounded-2xl pointer-events-none" />
-              </div>
-            </motion.div>
-          )}
+          <div>
+            {isVideo ? (
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden lg:block"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                  <video
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto object-cover aspect-video"
+                  />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden lg:block"
+              >
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={imageSrc || ""}
+                    alt="Hero image"
+                    width={100}
+                    height={100}
+                    className="w-full h-auto "
+                  />
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
 

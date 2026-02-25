@@ -23,14 +23,17 @@ export default function ContactPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Contact" }]} />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className={`grid gap-8 lg:gap-12 items-center lg:grid-cols-2`}>
+          <div >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6 text-balance">Contact met KM Aanbouw</h2>
+            <div className="max-w-3xl">
+              <p>Heb je een vraag, wil je sparren over een idee of direct een offerte aanvragen? Neem contact op via het formulier of bel/mail ons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Hero
-        kicker={page.hero.kicker}
-        title={page.hero.title}
-        subtitle={page.hero.subtitle}
-        ctas={page.hero.ctas}
-        showGrid={false}
-      />
 
       {/* Contact Info */}
       <section className="py-16 lg:py-24 bg-muted/30">
@@ -44,10 +47,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold mb-1">Bel ons</h3>
                   <a
-                    href={`tel:${site.brand.phone.replace(/\s/g, "")}`}
+                    href={`tel:${site.brand.phoneE164}`}
                     className="text-primary font-medium hover:underline transition-colors"
                   >
-                    {site.brand.phone}
+                    {site.brand.phoneDisplay}
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">Direct advies</p>
                 </div>
@@ -79,7 +82,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Werkgebied</h3>
-                  <p className="text-foreground font-medium">{site.brand.serviceArea}</p>
+                  <p className="text-foreground font-medium">{site.brand.serviceArea}, Nederland</p>
                   <p className="text-sm text-muted-foreground mt-1">We komen graag langs</p>
                 </div>
               </CardContent>
@@ -91,9 +94,10 @@ export default function ContactPage() {
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Bereikbaar</h3>
-                  <p className="text-foreground font-medium">Ma - Vr</p>
-                  <p className="text-sm text-muted-foreground mt-1">08:00 - 17:00 uur</p>
+                  <p className="text-foreground font-medium">Bereikbaar</p>
+                  <p className="text-sm text-muted-foreground mt-1">Maandag t/m vrijdag: 08:00 - 17:00</p>
+                  <p className="text-sm text-muted-foreground mt-1">Zaterdag: 09:00 - 13:00</p>
+                  <p className="text-sm text-muted-foreground mt-1">Zondag: gesloten</p>
                 </div>
               </CardContent>
             </Card>
@@ -149,31 +153,25 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2">
               <div className="p-8 lg:p-12">
                 <h3 className="text-2xl font-bold mb-4">KM Aanbouw</h3>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    <strong className="text-foreground">Adres:</strong><br />
-                    {site.brand.address}
-                  </p>
-                  <p>
-                    <strong className="text-foreground">KvK:</strong><br />
-                    {site.brand.kvk}
-                  </p>
-                  <p>
-                    <strong className="text-foreground">BTW:</strong><br />
-                    {site.brand.btw}
+                <div className="space-y-4 text-muted-foreground text-center p-8">
+                  <MapPin className="w-16 h-16 text-primary/30 mx-auto mb-4" />
+                  <p className="text-muted-foreground font-medium">
+                    Werkgebied: {site.brand.serviceArea}, Nederland
                   </p>
                 </div>
               </div>
               <div className="aspect-square md:aspect-auto bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center min-h-[300px]">
-                <div className="text-center p-8">
-                  <MapPin className="w-16 h-16 text-primary/30 mx-auto mb-4" />
-                  <p className="text-muted-foreground font-medium">
-                    Werkgebied: {site.brand.serviceArea}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    We komen graag bij u langs voor een vrijblijvend adviesgesprek
-                  </p>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2456.8!2d4.4251!3d52.0199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b5a5b5a5b5a5%3A0x0!2sDe%20Aanbouw%20Expert!5e0!3m2!1snl!2snl!4v1234567890"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="De Aanbouw Expert locatie"
+                  className="w-full"
+                />
               </div>
             </div>
           </Card>

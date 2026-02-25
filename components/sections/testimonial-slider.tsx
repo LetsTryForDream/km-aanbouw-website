@@ -99,7 +99,7 @@ export function TestimonialSlider({
               >
                 <Card className="border-none shadow-lg">
                   <CardContent className="p-8 md:p-12">
-                    <Quote className="w-10 h-10 text-primary/20 mb-6" />
+                    <Quote className="w-10 h-10 text-primary mb-6" />
                     <p className="text-xl md:text-2xl font-medium mb-6 leading-relaxed text-pretty">
                       {currentTestimonial.text}
                     </p>
