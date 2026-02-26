@@ -226,9 +226,9 @@ export const site = {
         ],
         images: [
           "/images/project-5.jpg",
-          "/images/project-2.jpg",
-          "/images/project-3.jpg",
-          "/images/project-4.jpg",
+          "/images/project-6.jpg",
+          "/images/project-7.jpg",
+          "/images/project-8.jpg",
         ]
       },
       faq: [
@@ -266,9 +266,9 @@ export const site = {
         ],
         images: [
           "/images/project-5.jpg",
-          "/images/project-2.jpg",
-          "/images/project-3.jpg",
-          "/images/project-4.jpg",
+          "/images/project-6.jpg",
+          "/images/project-7.jpg",
+          "/images/project-8.jpg",
         ]
       },
       waarWeLetten: {
@@ -308,9 +308,9 @@ export const site = {
         ],
         images: [
           "/images/project-5.jpg",
-          "/images/project-2.jpg",
-          "/images/project-3.jpg",
-          "/images/project-4.jpg",
+          "/images/project-6.jpg",
+          "/images/project-7.jpg",
+          "/images/project-8.jpg",
         ]
       },
       resultaat: {
@@ -405,9 +405,9 @@ export const site = {
         ],
         images: [
           "/images/project-5.jpg",
-          "/images/project-2.jpg",
-          "/images/project-3.jpg",
-          "/images/project-4.jpg",
+          "/images/project-6.jpg",
+          "/images/project-7.jpg",
+          "/images/project-8.jpg",
         ]
       },
       belangrijk: {

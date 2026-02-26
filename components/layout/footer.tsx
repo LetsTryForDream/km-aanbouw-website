@@ -20,37 +20,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 font-bold text-xl mb-4">
-              <span className="text-primary text-2xl">KM</span>
+            <Link href="/" className="inline-flex items-center gap-2 font-bold text-2l mb-4">
+              <span className="text-primary text-3xl">KM</span>
               <span>Aanbouw</span>
             </Link>
-            <p className="text-background/70 text-sm leading-relaxed mb-4">
+            <p className="text-background/70 text-sm leading-relaxed mb-4 max-w-[220px]">
               {site.brand.description}
             </p>
-            <div className="flex flex-col gap-2 text-sm text-background/70">
-              <a href={`tel:${site.brand.phoneE164}`} className="flex items-center gap-2 hover:text-background transition-colors">
-                <Phone className="h-4 w-4" />
-                {site.brand.phoneDisplay}
-              </a>
-              <div className="flex items-center gap-2 text-[#fcfcfcbf] hover:text-background transition-colors">
-                <WhatsAppIcon />
-                <Link
-                  href={`https://wa.me/${site.brand.whatsappWaMe}`}
-                  className="flex items-center gap-2"
-                  aria-label={`WhatsApp ${site.brand.name} op ${site.brand.phoneDisplay}`}
-                >
-                  WhatsApp: {site.brand.phoneDisplay}
-                </Link>
-              </div>
-              <a href={`mailto:${site.brand.email}`} className="flex items-center gap-2 hover:text-background transition-colors">
-                <Mail className="h-4 w-4" />
-                {site.brand.email}
-              </a>
-              <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                {site.brand.serviceArea}
-              </span>
-            </div>
           </div>
 
           {/* Services */}
@@ -87,20 +63,6 @@ export function Footer() {
                   Kosten berekenen
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Werkgebieden */}
-          <div>
-            <h3 className="font-semibold mb-4">Werkgebieden</h3>
-            <ul className="space-y-2 text-sm text-background/70">
-              {site.workAreas.slice(0, 6).map((area) => (
-                <li key={area.slug}>
-                  <Link href={`/werkgebieden/${area.slug}`} className="hover:text-background transition-colors">
-                    {area.name}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </div>
 
@@ -144,6 +106,34 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Contact</h3>
+            <div className="flex flex-col gap-2 text-sm text-background/70">
+              <a href={`tel:${site.brand.phoneE164}`} className="flex items-center gap-2 hover:text-background transition-colors">
+                <Phone className="h-4 w-4" />
+                {site.brand.phoneDisplay}
+              </a>
+              <div className="flex items-center gap-2 text-[#fcfcfcbf] hover:text-background transition-colors">
+                <WhatsAppIcon />
+                <Link
+                  href={`https://wa.me/${site.brand.whatsappWaMe}`}
+                  className="flex items-center gap-2"
+                  aria-label={`WhatsApp ${site.brand.name} op ${site.brand.phoneDisplay}`}
+                >
+                  WhatsApp: {site.brand.phoneDisplay}
+                </Link>
+              </div>
+              <a href={`mailto:${site.brand.email}`} className="flex items-center gap-2 hover:text-background transition-colors">
+                <Mail className="h-4 w-4" />
+                {site.brand.email}
+              </a>
+              <span className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                {site.brand.serviceArea}
+              </span>
+            </div>
           </div>
         </div>
 
