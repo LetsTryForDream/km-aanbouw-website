@@ -9,8 +9,8 @@ export const site = {
     phoneE164: "+31614307340",
     whatsappWaMe: "31614307340",
     whatsappE164: "+31614307340",
-    serviceArea: "Hallenstraat 21A, 5531 AB Bladel",
-    address: "Hallenstraat 21A, 5531 AB Bladel",
+    serviceArea: "Dillenburgstraat 5a, 5652 AM Eindhoven",
+    address: "Dillenburgstraat 5a, 5652 AM Eindhoven",
     url: "https://www.kmaanbouw.nl",
   },
 
